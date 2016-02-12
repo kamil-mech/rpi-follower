@@ -23,12 +23,16 @@ threads = {}
 comms = DynamicObject({})
 
 # load modules here
-import OpenCV
-OpenCV = OpenCV.Class
-import Servo
-Servo = Servo.Class
-import Audio
-Audio = Audio.Class
+# import OpenCV
+# OpenCV = OpenCV.Class
+# import Servo
+# Servo = Servo.Class
+# import Audio
+# Audio = Audio.Class
+import Test
+Test = Test.Class
+import Test2
+Test2 = Test2.Class
 
 def registerOutput (owner, tag, default):
     with MsgLock:
@@ -70,9 +74,11 @@ def addThread (Class, name):
     threads[name] = Class(name, API)
 
 # Create threads
-addThread(OpenCV, "opencv")
-addThread(Servo, "servo")
-addThread(Audio, "audio")
+# addThread(OpenCV, "opencv")
+# addThread(Servo, "servo")
+# addThread(Audio, "audio")
+addThread(Test, "test")
+addThread(Test2, "test2")
 
 # Start threads
 for t in threads:
